@@ -163,13 +163,7 @@ class _ImageFallback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [category.color, category.color.withValues(alpha: 0.65)],
-        ),
-      ),
+      color: category.color,
       alignment: Alignment.center,
       child: showSpinner
           ? const SizedBox(

@@ -19,6 +19,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 200,
     spotsTaken: 138,
     imageSeed: 'coloquio-investigacion',
+    imageKeywords: ['university', 'research', 'conference'],
     description:
         'Estudiantes y docentes presentan avances de proyectos de investigación de todas las facultades.',
   ),
@@ -31,6 +32,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 120,
     spotsTaken: 120,
     imageSeed: 'conferencia-ia',
+    imageKeywords: ['artificial-intelligence', 'technology', 'conference'],
     description:
         'Especialistas de la industria comparten casos reales de inteligencia artificial aplicada.',
   ),
@@ -43,6 +45,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 500,
     spotsTaken: 210,
     imageSeed: 'semana-ingenieria',
+    imageKeywords: ['engineering', 'university', 'students'],
     description:
         'Conferencias, stands y demostraciones de todos los programas de ingeniería.',
   ),
@@ -55,6 +58,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 80,
     spotsTaken: 47,
     imageSeed: 'casos-estudio',
+    imageKeywords: ['business-meeting', 'presentation', 'students'],
     description:
         'Equipos multidisciplinarios resuelven un caso de negocio real ante un panel de jueces.',
   ),
@@ -71,6 +75,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 160,
     spotsTaken: 96,
     imageSeed: 'futbol-rapido',
+    imageKeywords: ['soccer', 'football', 'sports'],
     description:
         'Fase de grupos del torneo interfacultades. Entrada libre para porras.',
   ),
@@ -83,6 +88,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 300,
     spotsTaken: 275,
     imageSeed: 'copa-basquetbol',
+    imageKeywords: ['basketball', 'sports', 'arena'],
     description: 'Semifinales de la copa universitaria de baloncesto varonil y femenil.',
   ),
   CampusEvent(
@@ -94,6 +100,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 400,
     spotsTaken: 180,
     imageSeed: 'carrera-5k',
+    imageKeywords: ['running', 'marathon', 'race'],
     description: 'Carrera recreativa abierta a toda la comunidad universitaria.',
   ),
   CampusEvent(
@@ -105,6 +112,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 96,
     spotsTaken: 40,
     imageSeed: 'voleibol-mixto',
+    imageKeywords: ['volleyball', 'sports', 'gym'],
     description: 'Equipos mixtos de 6 integrantes compiten en formato de eliminación directa.',
   ),
 
@@ -120,6 +128,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 600,
     spotsTaken: 310,
     imageSeed: 'dia-de-muertos',
+    imageKeywords: ['dayofthedead', 'festival', 'mexico'],
     description: 'Concurso de altares, comparsa y venta de artesanías estudiantiles.',
   ),
   CampusEvent(
@@ -131,6 +140,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 250,
     spotsTaken: 158,
     imageSeed: 'danza-folklorica',
+    imageKeywords: ['folkdance', 'dance', 'mexico'],
     description: 'El ballet folklórico universitario presenta su repertorio de la temporada.',
   ),
   CampusEvent(
@@ -142,6 +152,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 350,
     spotsTaken: 350,
     imageSeed: 'estudiantina',
+    imageKeywords: ['concert', 'music', 'guitar'],
     description: 'Concierto tradicional de la estudiantina universitaria, entrada libre.',
   ),
   CampusEvent(
@@ -153,6 +164,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 150,
     spotsTaken: 62,
     imageSeed: 'arte-digital',
+    imageKeywords: ['digitalart', 'art', 'gallery'],
     description: 'Muestra de ilustración, animación y arte generativo de alumnos de todas las carreras.',
   ),
 
@@ -168,6 +180,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 180,
     spotsTaken: 165,
     imageSeed: 'hackathon',
+    imageKeywords: ['hackathon', 'coding', 'laptop'],
     description: '24 horas continuas de desarrollo. Equipos de hasta 4 integrantes.',
   ),
   CampusEvent(
@@ -179,6 +192,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 40,
     spotsTaken: 40,
     imageSeed: 'taller-flutter',
+    imageKeywords: ['programming', 'coding', 'computer'],
     description: 'Introducción práctica al desarrollo multiplataforma con Flutter.',
   ),
   CampusEvent(
@@ -190,6 +204,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 100,
     spotsTaken: 54,
     imageSeed: 'demo-day',
+    imageKeywords: ['startup', 'presentation', 'technology'],
     description: 'Los equipos del último semestre presentan sus proyectos finales a la industria.',
   ),
   CampusEvent(
@@ -201,6 +216,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 150,
     spotsTaken: 71,
     imageSeed: 'ciberseguridad',
+    imageKeywords: ['cybersecurity', 'hacker', 'computer'],
     description: 'Buenas prácticas de seguridad digital y protección de identidad en línea.',
   ),
 
@@ -216,6 +232,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 35,
     spotsTaken: 22,
     imageSeed: 'oratoria',
+    imageKeywords: ['publicspeaking', 'debate', 'microphone'],
     description: 'Técnicas de expresión oral y argumentación aplicadas a debates universitarios.',
   ),
   CampusEvent(
@@ -227,6 +244,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 30,
     spotsTaken: 12,
     imageSeed: 'fotografia',
+    imageKeywords: ['photography', 'smartphone', 'camera'],
     description: 'Composición, luz e iluminación básica usando únicamente el teléfono celular.',
   ),
   CampusEvent(
@@ -238,6 +256,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 45,
     spotsTaken: 45,
     imageSeed: 'primeros-auxilios',
+    imageKeywords: ['firstaid', 'medical', 'training'],
     description: 'Certificación básica en RCP y atención de emergencias en el campus.',
   ),
   CampusEvent(
@@ -249,6 +268,7 @@ final List<CampusEvent> campusEvents = [
     totalSpots: 50,
     spotsTaken: 18,
     imageSeed: 'finanzas-personales',
+    imageKeywords: ['finance', 'money', 'budget'],
     description: 'Cómo presupuestar, ahorrar y evitar el sobreendeudamiento desde la universidad.',
   ),
 ];

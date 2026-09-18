@@ -78,6 +78,7 @@ class CampusEvent {
   final int totalSpots;
   final int spotsTaken;
   final String imageSeed;
+  final List<String> imageKeywords;
   final String description;
 
   const CampusEvent({
@@ -89,6 +90,7 @@ class CampusEvent {
     required this.totalSpots,
     required this.spotsTaken,
     required this.imageSeed,
+    required this.imageKeywords,
     required this.description,
   });
 
@@ -103,8 +105,13 @@ class CampusEvent {
 
   bool get isAlmostFull => !isFull && occupancyRatio >= 0.8;
 
-  /// URL determinística (misma imagen siempre para el mismo evento) usada
-  /// como placeholder visual mientras no existan fotografías propias.
-  String get imageUrl =>
-      'https://picsum.photos/seed/$imageSeed/600/400';
+  /// URL determinística (misma imagen siempre para el mismo evento) de una
+  /// fotografía relacionada con el tema del evento, en vez de una imagen
+  /// genérica: se piden por palabras clave (ej. "hackathon,coding") y se fija
+  /// con `lock` para que no cambie entre recargas.
+  String get imageUrl {
+    final lock = imageSeed.hashCode.abs() % 100000;
+    final tags = imageKeywords.join(',');
+    return 'https://loremflickr.com/600/400/$tags?lock=$lock';
+  }
 }
