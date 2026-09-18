@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Campus Eventos</title>
+<style>
+  @page {
+    size: letter;
+    margin: 19mm 14mm 20mm 14mm;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: #000;
+    font-size: 10pt;
+    line-height: 1.32;
+    text-align: justify;
+  }
+
+  /* ---------- Encabezado (ancho completo) ---------- */
+  .paper-title {
+    font-size: 22pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 4mm 0;
+    line-height: 1.15;
+  }
+  .authors {
+    text-align: center;
+    font-size: 11pt;
+    margin: 0 0 1mm 0;
+  }
+  .affiliation {
+    text-align: center;
+    font-size: 9.5pt;
+    font-style: italic;
+    color: #222;
+    margin: 0 0 7mm 0;
+  }
+
+  /* ---------- Cuerpo a dos columnas ---------- */
+  .body-columns {
+    column-count: 2;
+    column-gap: 8mm;
+    column-rule: 0.3pt solid #bbb;
+  }
+
+  .abstract-block {
+    margin-bottom: 3mm;
+  }
+  .abstract-block .lead {
+    font-weight: 700;
+    font-style: italic;
+  }
+  .keywords .lead {
+    font-weight: 700;
+    font-style: italic;
+  }
+  .keywords {
+    margin-bottom: 4mm;
+    font-size: 10pt;
+  }
+
+  h2.section {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.4pt;
+    margin: 5mm 0 2mm 0;
+    break-after: avoid;
+  }
+  h3.subsection {
+    font-size: 10pt;
+    font-weight: 700;
+    font-style: italic;
+    margin: 3mm 0 1mm 0;
+    break-after: avoid;
+  }
+
+  p { margin: 0 0 2.4mm 0; text-indent: 4mm; }
+  p:first-of-type, .no-indent { text-indent: 0; }
+
+  ul, ol {
+    margin: 0 0 2.4mm 5mm;
+    padding: 0;
+  }
+  li { margin-bottom: 1mm; }
+
+  code, .code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    background: #f1f1f1;
+    padding: 0 1pt;
+  }
+  pre.code-block {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 8pt;
+    line-height: 1.25;
+    background: #f4f4f4;
+    border: 0.4pt solid #ccc;
+    padding: 2mm;
+    margin: 1mm 0 3mm 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    break-inside: avoid;
+  }
+
+  table.spec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.6pt;
+    margin: 1mm 0 3mm 0;
+    break-inside: avoid;
+  }
+  table.spec th, table.spec td {
+    border: 0.4pt solid #888;
+    padding: 1mm 1.4mm;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.spec th { background: #e8e8e8; font-weight: 700; }
+
+  /* ---------- Figuras ---------- */
+  figure {
+    margin: 2mm 0 3mm 0;
+    break-inside: avoid;
+  }
+  figure.full-width {
+    column-span: all;
+    margin: 3mm 0 4mm 0;
+    text-align: center;
+  }
+  figure img {
+    display: block;
+    max-width: 100%;
+    border: 0.5pt solid #999;
+  }
+  figure.full-width img {
+    max-height: 78mm;
+    margin: 0 auto;
+  }
+  figure.inline img {
+    max-height: 95mm;
+    margin: 0 auto;
+  }
+  figcaption {
+    font-size: 8.4pt;
+    text-align: center;
+    margin-top: 1mm;
+  }
+  figure.narrow img {
+    max-height: 105mm;
+    margin: 0 auto;
+  }
+
+  .refs {
+    font-size: 9pt;
+    margin: 0 0 1.6mm 0;
+    text-indent: -4mm;
+    padding-left: 4mm;
+  }
+
+  a { color: #000; }
+
+  .repo-box {
+    border: 0.6pt solid #444;
+    padding: 2mm 3mm;
+    margin: 2mm 0 3mm 0;
+    font-size: 9.5pt;
+    background: #f7f7f7;
+    break-inside: avoid;
+  }
+</style>
+</head>
+<body>
+
+<div class="paper-title">Campus Eventos: Aplicación Multiplataforma en Flutter para la Consulta y el Filtrado de Actividades Universitarias por Categoría</div>
+<div class="authors">Carlos González</div>
+<div class="affiliation">Programación de Dispositivos Móviles — Reporte técnico de práctica<br>Septiembre de 2026</div>
+
+<div class="body-columns">
+
+<div class="abstract-block no-indent">
+<span class="lead">Resumen—</span>Este documento describe el desarrollo de <em>Campus Eventos</em>, una aplicación
+construida con Flutter que permite a los estudiantes de una institución universitaria consultar las
+actividades académicas, deportivas, culturales, tecnológicas y de talleres que se realizan dentro del
+campus, filtrando la información por categoría. Se detalla la arquitectura del proyecto, los widgets de
+Flutter utilizados, el mecanismo de filtrado y manejo de estado, el diseño responsivo implementado para
+adaptarse a pantallas de celular y de escritorio, y los resultados obtenidos al ejecutar la aplicación en
+ambos formatos.
+</div>
+
+<div class="keywords no-indent">
+<span class="lead">Índice de Términos—</span>Flutter, Dart, StatefulWidget, GridView, ListView, diseño
+responsivo, aplicaciones móviles multiplataforma.
+</div>
+
+<h2 class="section">I. Introducción</h2>
+<p>Las universidades organizan de manera constante actividades académicas, deportivas, culturales,
+tecnológicas y talleres dirigidos a su comunidad estudiantil. Sin embargo, esta información suele
+encontrarse dispersa entre carteles físicos, redes sociales y comunicados internos, lo que dificulta que
+un estudiante identifique rápidamente los eventos que son de su interés.</p>
+<p>El objetivo de esta práctica es desarrollar <em>Campus Eventos</em>, una aplicación en Flutter que
+concentre en un solo lugar el catálogo de eventos del campus y permita filtrarlos por categoría, mostrando
+para cada uno su imagen, nombre, categoría, fecha, hora, lugar y cupo disponible. Además de cumplir con los
+requerimientos funcionales de la práctica, se buscó que la aplicación tuviera una identidad visual propia y
+un comportamiento cercano al de una aplicación terminada, en lugar de un ejercicio básico de clase.</p>
+<p>El alcance técnico de la práctica exigía el uso de <code>StatefulWidget</code>, <code>setState()</code>,
+<code>ListView</code>, <code>GridView</code>, <code>Card</code>, <code>Image</code>, <code>Row</code>,
+<code>Column</code>, <code>ChoiceChip</code> y <code>SnackBar</code>, así como una organización del código
+separada por responsabilidades (datos, modelos, pantallas, widgets y tema).</p>
+
+<h2 class="section">II. Desarrollo</h2>
+<h3 class="subsection">A. Arquitectura del proyecto</h3>
+<p>El proyecto separa el código en seis carpetas dentro de <code>lib/</code>, cada una con una
+responsabilidad única, lo que evita que la pantalla principal contenga datos, estilos o widgets que en
+realidad pertenecen a otra capa:</p>
+<table class="spec">
+<tr><th>Carpeta / archivo</th><th>Responsabilidad</th></tr>
+<tr><td><code>models/campus_event.dart</code></td><td>Modelo <code>CampusEvent</code> y enum
+<code>EventCategory</code> (con su etiqueta, ícono y color asociados).</td></tr>
+<tr><td><code>data/event_data.dart</code></td><td>Lista de los 20 eventos; única fuente de verdad de los
+datos, independiente de la interfaz.</td></tr>
+<tr><td><code>screens/home_page.dart</code></td><td>Pantalla principal (<code>StatefulWidget</code>),
+filtrado y composición de la interfaz.</td></tr>
+<tr><td><code>widgets/</code></td><td><code>EventCard</code>, <code>CategoryChip</code> y
+<code>EmptyState</code>: piezas de interfaz reutilizables.</td></tr>
+<tr><td><code>theme/app_theme.dart</code></td><td>Paleta de colores y <code>ThemeData</code> (modo claro y
+oscuro).</td></tr>
+<tr><td><code>utils/date_utils.dart</code></td><td>Formateo de fechas y horas en español.</td></tr>
+</table>
+
+<h3 class="subsection">B. Modelo de datos</h3>
+<p>La clase <code>CampusEvent</code> encapsula la información obligatoria de cada evento (identificador,
+título, categoría, fecha y hora, lugar, cupo total, lugares ocupados, semilla de imagen y descripción) y
+expone propiedades derivadas como <code>spotsAvailable</code> y <code>occupancyRatio</code>, evitando
+repetir ese cálculo en la interfaz. El enum <code>EventCategory</code> define las cinco categorías
+obligatorias (Académicos, Deportivos, Culturales, Tecnología y Talleres) y, mediante una extensión de Dart,
+asocia a cada una su etiqueta, ícono y color, de forma que tanto los chips de filtro como las tarjetas usan
+siempre la misma identidad visual por categoría.</p>
+
+<h3 class="subsection">C. Catálogo de eventos</h3>
+<p>El archivo <code>event_data.dart</code> define 20 eventos (cuatro por cada una de las cinco categorías),
+con nombres, fechas, horarios, lugares y cupos distintos entre sí, evitando datos repetidos o genéricos.</p>
+
+<h3 class="subsection">D. Widgets de Flutter utilizados</h3>
+<p>La pantalla principal (<code>HomePage</code>) es un <code>StatefulWidget</code> cuyo estado
+(<code>_selectedCategory</code>) se actualiza mediante <code>setState()</code> cada vez que el usuario
+elige una categoría. El listado de eventos se muestra con <code>ListView.builder</code> en pantallas
+angostas y con <code>GridView.builder</code> en pantallas anchas, ambos dentro de un mismo
+<code>LayoutBuilder</code>. Cada evento se representa con un <code>Card</code> que combina
+<code>Image</code>, <code>Row</code> y <code>Column</code> para acomodar la imagen, las insignias de
+categoría/cupo, el título, la fecha, el lugar y el botón de acción. El filtro por categoría se construye con
+<code>ChoiceChip</code> (envuelto en el widget <code>CategoryChip</code>) y la confirmación de interés se
+comunica mediante un <code>SnackBar</code>.</p>
+
+<h2 class="section">III. Implementación</h2>
+<h3 class="subsection">A. Filtrado de eventos</h3>
+<p>El filtrado no se realiza ocultando visualmente tarjetas, sino recalculando la lista que se va a
+construir. La categoría seleccionada se guarda como <code>EventCategory? _selectedCategory</code>, donde
+<code>null</code> representa la opción “Todos”. Un getter calcula la lista visible a partir de los datos
+originales:</p>
+<pre class="code-block">List&lt;CampusEvent&gt; get _filteredEvents {
+  if (_selectedCategory == null) return campusEvents;
+  return campusEvents
+      .where((e) =&gt; e.category == _selectedCategory)
+      .toList(growable: false);
+}</pre>
+<p>Como <code>_filteredEvents</code> se evalúa de nuevo en cada <code>build()</code>, tanto la lista de
+tarjetas como el texto “Eventos encontrados: N” quedan siempre sincronizados con la categoría activa, sin
+mantener un contador aparte.</p>
+
+<h3 class="subsection">B. Manejo de estado</h3>
+<p>Al presionar un <code>CategoryChip</code>, se invoca <code>_selectCategory(category)</code>, que ejecuta
+<code>setState(() =&gt; _selectedCategory = category)</code>. Esto reconstruye la pantalla y, con ella, el
+getter de eventos filtrados. Al elegir “Todos” se pasa <code>null</code>, restaurando el catálogo completo.
+Un botón “Limpiar filtro” —visible únicamente cuando hay una categoría activa— ofrece un atajo adicional
+para volver a “Todos”.</p>
+
+<h3 class="subsection">C. Botón de interés y SnackBar</h3>
+<p>Cada tarjeta expone un botón “Me interesa” (deshabilitado y con la etiqueta “Cupo lleno” cuando el
+evento ya no tiene lugares disponibles). Al presionarlo se ejecuta:</p>
+<pre class="code-block">ScaffoldMessenger.of(context)
+  ..hideCurrentSnackBar()
+  ..showSnackBar(SnackBar(
+      content: Text('Te registraste en "${'$'}{event.title}"')));</pre>
+<p>El <code>SnackBar</code> incluye siempre el nombre exacto del evento presionado, y se oculta cualquier
+aviso previo antes de mostrar el nuevo para evitar que se acumulen en pantalla.</p>
+
+<h3 class="subsection">D. Diseño responsivo</h3>
+<p>Un <code>LayoutBuilder</code> mide el ancho disponible en tiempo real. Por debajo de 640&nbsp;px
+(constante <code>AppBreakpoints.phone</code>) se usa un <code>ListView.builder</code> de una sola columna,
+propio de una pantalla de celular. A partir de 640&nbsp;px se usa un <code>GridView.builder</code> con
+<code>SliverGridDelegateWithMaxCrossAxisExtent</code>, que calcula automáticamente el número de columnas
+(2, 3 o más) según el ancho disponible, en lugar de fijarlo manualmente. La barra de categorías utiliza
+<code>Wrap</code> en vez de una fila con desplazamiento horizontal, de modo que en pantallas muy angostas
+los chips que no caben bajan a una segunda línea sin recortarse. Los textos largos (títulos y ubicaciones)
+usan <code>maxLines</code> y <code>TextOverflow.ellipsis</code> para evitar que se corten de forma abrupta o
+desborden la tarjeta.</p>
+
+<h3 class="subsection">E. Organización del código y pruebas</h3>
+<p>Además de la estructura mínima solicitada, se agregaron las carpetas <code>models/</code> (tipado de los
+datos) y <code>utils/</code> (formateo de fecha y hora en español sin depender del paquete
+<code>intl</code>). Se escribieron tres pruebas de widget con <code>flutter_test</code> que verifican: (1)
+la carga inicial con los 20 eventos, (2) que filtrar por “Tecnología” reduce el conteo a 4 y que “Todos” lo
+restaura, y (3) que al presionar “Me interesa” aparece el <code>SnackBar</code> con el nombre exacto del
+evento. Las tres pruebas, junto con <code>flutter analyze</code>, se ejecutan sin errores ni advertencias.</p>
+
+<h2 class="section">IV. Resultados</h2>
+<p>A continuación se muestra la aplicación en ejecución en dos formatos de pantalla: una vista ancha
+(escritorio/web) y una vista de celular (390×844&nbsp;px), incluyendo el filtrado por categoría y la
+confirmación mediante <code>SnackBar</code>.</p>
+
+<figure class="full-width">
+<img src="img/desktop_todos.jpg" alt="Vista de escritorio, categoría Todos">
+<figcaption>Fig. 1. Vista en pantalla ancha con la categoría “Todos” seleccionada: <code>GridView</code>
+de cuatro columnas, 20 eventos encontrados.</figcaption>
+</figure>
+
+<figure class="full-width">
+<img src="img/desktop_filtro.jpg" alt="Vista de escritorio con filtro Tecnología aplicado">
+<figcaption>Fig. 2. Filtrado por la categoría “Tecnología”: el contador se actualiza a 4 eventos
+encontrados y aparece el botón “Limpiar filtro”.</figcaption>
+</figure>
+
+<figure class="narrow">
+<img src="img/phone_todos.png" alt="Vista de celular, categoría Todos">
+<figcaption>Fig. 3. Vista de celular (390×844&nbsp;px): <code>ListView</code> de una columna, sin
+elementos desbordados.</figcaption>
+</figure>
+
+<figure class="narrow">
+<img src="img/phone_snackbar.jpg" alt="SnackBar al presionar Me interesa">
+<figcaption>Fig. 4. <code>SnackBar</code> mostrado al presionar “Me interesa” en el evento “Hackathon
+Campus Innovación 2026”.</figcaption>
+</figure>
+
+<p>En ambos formatos la información de cada tarjeta (imagen, categoría, cupo, fecha, hora, lugar y barra de
+ocupación) permanece completa y legible, y el cambio de <code>ListView</code> a <code>GridView</code> ocurre
+automáticamente según el ancho de la ventana, sin intervención del usuario.</p>
+
+<h2 class="section">V. Conclusiones</h2>
+<p>El desarrollo de Campus Eventos permitió aplicar, más allá de un ejercicio introductorio, patrones que
+se usan en aplicaciones reales: separar los datos de la interfaz, derivar el estado visible (lista filtrada
+y contador) a partir de un único valor de estado en lugar de mantener variables redundantes, y adaptar el
+mismo árbol de widgets a distintos tamaños de pantalla mediante <code>LayoutBuilder</code>.</p>
+<p>El principal reto técnico fue diseñar tarjetas de evento que no se desbordaran dentro de las columnas
+más angostas que puede generar un <code>GridView</code> de ancho automático. Se resolvió limitando los
+textos con <code>maxLines</code> y <code>TextOverflow.ellipsis</code>, y calculando un
+<code>childAspectRatio</code> con margen suficiente para el contenido más largo (título de dos líneas,
+fecha, lugar, barra de cupo y botón). Un segundo reto fue verificar el comportamiento responsivo sin un
+dispositivo físico disponible en el momento de las pruebas; esto se resolvió redimensionando la ventana del
+navegador para simular tanto un ancho de celular como uno de escritorio, y complementando la verificación
+manual con las pruebas automatizadas de widget, que ejercitan el filtrado y el <code>SnackBar</code> de
+forma reproducible.</p>
+<p>Como trabajo futuro, la aplicación podría ampliarse con persistencia real de los registros de interés,
+búsqueda por texto y notificaciones para los eventos con cupo próximo a agotarse.</p>
+
+<h2 class="section">Anexos</h2>
+<div class="repo-box no-indent">
+Repositorio del proyecto completo (código fuente, historial de commits y este reporte):<br>
+<a href="https://github.com/carlosglezq/campus_eventos">https://github.com/carlosglezq/campus_eventos</a>
+</div>
+
+<h2 class="section">Referencias</h2>
+<p class="refs">[1] Google, “Flutter documentation,” 2026. [En línea]. Disponible:
+https://docs.flutter.dev</p>
+<p class="refs">[2] Google, “Dart programming language,” 2026. [En línea]. Disponible:
+https://dart.dev</p>
+<p class="refs">[3] Google, “Material Design 3,” 2026. [En línea]. Disponible: https://m3.material.io</p>
+<p class="refs">[4] Google, “ChoiceChip class — Flutter API,” 2026. [En línea]. Disponible:
+https://api.flutter.dev/flutter/material/ChoiceChip-class.html</p>
+<p class="refs">[5] Google, “SnackBar class — Flutter API,” 2026. [En línea]. Disponible:
+https://api.flutter.dev/flutter/material/SnackBar-class.html</p>
+
+</div>
+</body>
+</html>
